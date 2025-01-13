@@ -1,4 +1,4 @@
-import ErrorMessage from "../../types/ErrorMessage";
+import ErrorMessage from "../../types/ErrorMessage.type";
 
 async function patchRequest<T, U>(url: string, body: U, query?: Record<string, string>): Promise<T | ErrorMessage> {
     try {

@@ -150,6 +150,30 @@
     font-size: 0.9rem;
 }
 
+.tab.dark {
+    background-color: var(--black_2) !important;
+}
+
+.tab.dark .logo .text h1 {
+    color: var(--white_6);
+}
+
+.tab.dark .field label {
+    color: var(--white_6);
+}
+
+.tab.dark .field input {
+    border: 2px solid var(--yellow_4);
+}
+
+.tab.dark .field a {
+    color: var(--blue_6);
+}
+
+.tab.dark .buttons .register {
+    color: var(--white_6);
+}
+
 @media (max-width: 1200px) {
     .wallpaper {
         width: 100%;

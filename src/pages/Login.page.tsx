@@ -4,16 +4,22 @@ import changeViewPassword from "../functions/utils/viewPassword"
 import view from "../assets/images/view.svg"
 import unView from "../assets/images/unView.svg"
 import usernameMask from "../functions/utils/usernameMask"
+import ThemeContext from "../context/Theme.context"
 
 export default function LoginPage() {
+    const { theme, toggleTheme } = React.useContext(ThemeContext);
     const [username, setUsername] = React.useState<string>("")
     const [password, setPassword] = React.useState<string>("")
     const [viewPassword, setViewPassword] = React.useState<boolean>(false)
 
+    function teste() {
+        console.log(theme)
+    }
+
     return (
         <main className={css.main}>
             <div className={css.wallpaper} />
-            <div className={css.tab}>
+            <div className={css.tab  + " " + (theme === "dark" ? css.dark : css.light)}>
                 <div className={css.logo}>
                     <div className={css.img} />
                     <div className={css.text}>
@@ -47,7 +53,7 @@ export default function LoginPage() {
                     </div>
                     <div className={css.buttons}>
                         <a className={css.register} href="/">CADASTRAR</a>
-                        <button className={css.login} type="submit">ENTRAR</button>
+                        <button className={css.login} type="submit" onClick={toggleTheme}>ENTRAR</button>
                     </div>
                 </div>
             </div>
