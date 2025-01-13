@@ -1,10 +1,11 @@
 import React from "react"
 import css from "../styles/pages/login.module.css"
+import changeViewPassword from "../functions/utils/viewPassword"
 
 export default function LoginPage() {
     const [username, setUsername] = React.useState<string>("")
     const [password, setPassword] = React.useState<string>("")
-    const [viewPassword, setViewPassowrd] = React.useState<boolean>(false)
+    const [viewPassword, setViewPassword] = React.useState<boolean>(false)
 
     return (
         <main className={css.main}>
@@ -35,8 +36,10 @@ export default function LoginPage() {
                             id="password" 
                             type={viewPassword ? "text" : "password"}
                             className={css.password}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
-                        <button className={css.viewPassword} onClick={() => setViewPassowrd(!viewPassword)}>
+                        <button className={css.viewPassword} onClick={() => changeViewPassword(password, viewPassword, setViewPassword)}>
                             <img src="" alt=" "/>
                         </button>
                         <a href="">Esqueceu a senha?</a>
