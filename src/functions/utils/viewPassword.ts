@@ -1,10 +1,5 @@
-function changeViewPassword(passwordText: string, viewPassword: boolean, setViewPassword: (value: React.SetStateAction<boolean>) => void): void {
-    console.log(viewPassword)
-    if (passwordText) {
-        setViewPassword(!viewPassword)
-    } else {
-        return
-    }
+function changeViewPassword(viewPassword: boolean, setViewPassword: (value: React.SetStateAction<boolean>) => void): void {
+    setViewPassword(!viewPassword)
 }
 
 export default changeViewPassword

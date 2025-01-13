@@ -43,7 +43,7 @@
 
 .logo .text h1 {
     font-weight: normal;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-family: var(--title_font);
     color: var(--black_1)
 }
@@ -68,7 +68,7 @@
 
 .form {
     height: 50%;
-    width: 346px;
+    width: 320px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -84,13 +84,13 @@
 
 .field label {
     color: var(--black_1);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .field input {
     color: var(--black_1);
     padding: 8px 10px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background-color: var(--yellow_6);
     border: 2px solid var(--yellow_2);
     border-radius: 5px;
@@ -105,20 +105,25 @@
 }
 
 .field .viewPassword {
-    border: 1px dashed var(--yellow_2);
-    /* put image */
     height: 16px;
     width: 16px;
     right: 12px;
-    top: 46px;
+    top: 43px;
     border: none;
     position: absolute;
+    background-color: transparent;
+}
+
+.field .viewPassword img {
+    height: 16px;
+    width: 16px;
 }
 
 .field a {
     align-self: flex-end;
     text-decoration: none;
     color: var(--blue_4);
+    font-size: 1rem;
 }
 
 .buttons {
@@ -133,7 +138,7 @@
     text-decoration: none;
     color: var(--black_1);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .buttons .login {
@@ -142,7 +147,7 @@
     border-radius: 10px;
     padding: 12px 24px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 1200px) {
