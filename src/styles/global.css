@@ -1,17 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-    --roboto-font: 'Roboto', sans-serif;
+    --title_font: "Chewy", serif;
+    --text_font: "Nunito", serif;
+    --black_1: #0E0E0E;
+    --black_2: #1A1A1A;
+    --black_3: #2E2E2E;
+    --black_4: #404040;
+    --black_5: #595959;
+    --black_6: #717171;
+    --white_1: #9C9C9C;
+    --white_2: #B2B2B2;
+    --white_3: #CCCCCC;
+    --white_4: #DEDEDE;
+    --white_5: #EDEDED;
+    --white_6: #F7F7F7;
+    --yellow_1: #E56401;
+    --yellow_2: #FF9B00;
+    --yellow_3: #FFD700;
+    --yellow_4: #FFDF32;
+    --yellow_5: #FFEA7A;
+    --yellow_6: #FFF5C1;
+    --blue_1: #2D1364;
+    --blue_2: #382396;
+    --blue_3: #4239AA;
+    --blue_4: #5258C6;
+    --blue_5: #6A74DD;
+    --blue_6: #8CA5F7;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--roboto-font);
+    font-family: var(--text_font);
 }
 
 main {
     min-height: 100dvh;
     max-height: auto;
+}
+
+button {
+    cursor: pointer;
 }
