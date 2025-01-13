@@ -9,14 +9,10 @@ export default function LoginPage() {
 
     return (
         <main className={css.main}>
-            <div className={css.wallpaper}>
-                <img src="" alt="wallpaper" />
-            </div>
+            <div className={css.wallpaper} />
             <div className={css.tab}>
                 <div className={css.logo}>
-                    <div className={css.img}>
-                        <img src="" alt="logotype" />
-                    </div>
+                    <div className={css.img} />
                     <div className={css.text}>
                         <h1>Golden Tiger</h1>
                         <div className={css.line + " " + css.one} />

@@ -5,6 +5,9 @@
 
 .wallpaper {
     width: calc(100% - 512px);
+    height: 100dvh;
+    background-image: url("../../assets//images/wallpaper.jpg");
+    background-size: cover;
     z-index: 13;
 }
 
@@ -18,17 +21,17 @@
 }
 
 .logo {
-    height: 50%;
+    height: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 36px;
+    gap: 24px;
 }
 
 .logo .img {
-    border: 1px dashed var(--yellow_3);
-    /* put image */
+    background-image: url(../../assets//images/logo.png);
+    background-size: cover;
     height: 192px;
     width: 192px;
 }
@@ -150,6 +153,7 @@
     }
 
     .tab {
+        border-radius: 5px;
         margin: 20px auto;
         padding: 10px;
         max-width: 900px;
@@ -169,5 +173,11 @@
 
     .buttons {
         margin-top: 30px;
+    }
+}
+
+@media (max-width: 512px) {
+    .tab {
+        border-radius: 0;
     }
 }
