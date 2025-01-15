@@ -1,11 +1,12 @@
 import React, { useEffect } from "react"
 import LoggedUserContext from "../context/LoggedUser.context"
 import css from "../styles/pages/home.module.css"
+import NotLogged from "./NotLogged"
 
 function Home() {
     const { isLog, token, removeToken } = React.useContext(LoggedUserContext)
 
-    if (!isLog()) return <>User not logged</>
+    if (!isLog()) return <NotLogged />
 
     function teste() {
         console.log(token)
