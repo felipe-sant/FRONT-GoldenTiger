@@ -6,8 +6,8 @@
 .wallpaper {
     width: calc(100% - 512px);
     height: 100dvh;
-    /* background-image: url("../../assets//images/wallpaper.jpg");
-    background-size: cover; */
+    background-image: url("../../assets//images/wallpaper.jpg");
+    background-size: cover;
     z-index: 13;
 }
 
@@ -30,8 +30,8 @@
 }
 
 .logo .img {
-    /* background-image: url(../../assets//images/logo.png);
-    background-size: cover; */
+    background-image: url(../../assets/images/logo.png);
+    background-size: cover;
     height: 192px;
     width: 192px;
 }
@@ -105,13 +105,16 @@
 }
 
 .field .viewPassword {
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     right: 12px;
-    top: 43px;
+    top: 40px;
     border: none;
     position: absolute;
     background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .field .viewPassword img {
@@ -197,12 +200,17 @@
         box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
     }
 
+    .logo {
+        height: 40%;
+    }
+
     .logo .img {
         height: 128px;
         width: 128px;
     }
 
     .form {
+        height: 55%;
         width: 300px;
     }
 
