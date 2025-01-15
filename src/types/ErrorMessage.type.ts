@@ -1,5 +1,5 @@
 type ErrorMessage = {
-    error: string
+    message: string
 }
 
 export default ErrorMessage

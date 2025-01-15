@@ -17,7 +17,7 @@ async function deleteRequest<T>(url: string, query?: Record<string, string>): Pr
         return data;
     } catch (error) {
         console.error("Error:", error)
-        return { error: (error as Error).message }
+        return { message: (error as Error).message }
     }
 }
 

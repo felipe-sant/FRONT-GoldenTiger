@@ -18,7 +18,7 @@ async function putRequest<T, U>(url: string, body: U, query?: Record<string, str
         return data;
     } catch (error) {
         console.error("Erro:", error);
-        return { error: (error as Error).message };
+        return { message: (error as Error).message };
     }
 }
 

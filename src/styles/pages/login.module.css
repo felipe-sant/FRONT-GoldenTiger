@@ -6,8 +6,8 @@
 .wallpaper {
     width: calc(100% - 512px);
     height: 100dvh;
-    background-image: url("../../assets//images/wallpaper.jpg");
-    background-size: cover;
+    /* background-image: url("../../assets//images/wallpaper.jpg");
+    background-size: cover; */
     z-index: 13;
 }
 
@@ -30,8 +30,8 @@
 }
 
 .logo .img {
-    background-image: url(../../assets//images/logo.png);
-    background-size: cover;
+    /* background-image: url(../../assets//images/logo.png);
+    background-size: cover; */
     height: 192px;
     width: 192px;
 }

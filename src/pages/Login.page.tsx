@@ -5,15 +5,26 @@ import view from "../assets/images/view.svg"
 import unView from "../assets/images/unView.svg"
 import usernameMask from "../functions/utils/usernameMask"
 import ThemeContext from "../context/Theme.context"
+import UserConnection from "../backend/routes/UserConnection"
+import LoggedUserContext from "../context/LoggedUser.context"
 
 export default function LoginPage() {
     const { theme, toggleTheme } = React.useContext(ThemeContext);
+    const { updateToken } = React.useContext(LoggedUserContext)
     const [username, setUsername] = React.useState<string>("")
     const [password, setPassword] = React.useState<string>("")
     const [viewPassword, setViewPassword] = React.useState<boolean>(false)
 
-    function teste() {
-        console.log(theme)
+    async function login() {
+        if (username === "" || password === "") return
+        const response = await UserConnection.loginUser(username, password) as any
+        if (response.token) {
+            console.log(response.message)
+            updateToken(response.token)
+            window.location.href = "/"
+        } else {
+            console.log(response.message)
+        }
     }
 
     return (
@@ -53,7 +64,7 @@ export default function LoginPage() {
                     </div>
                     <div className={css.buttons}>
                         <a className={css.register} href="/">CADASTRAR</a>
-                        <button className={css.login} type="submit" onClick={toggleTheme}>ENTRAR</button>
+                        <button className={css.login} type="submit" onClick={login}>ENTRAR</button>
                     </div>
                 </div>
             </div>
