@@ -9,21 +9,28 @@ import UserConnection from "../backend/routes/UserConnection"
 import LoggedUserContext from "../context/LoggedUser.context"
 
 export default function LoginPage() {
-    const { theme, toggleTheme } = React.useContext(ThemeContext);
+    const { theme } = React.useContext(ThemeContext);
     const { updateToken } = React.useContext(LoggedUserContext)
     const [username, setUsername] = React.useState<string>("")
     const [password, setPassword] = React.useState<string>("")
     const [viewPassword, setViewPassword] = React.useState<boolean>(false)
+    const [errorMessage, setErrorMessage] = React.useState<string>()
 
     async function login() {
-        if (username === "" || password === "") return
+        if (username === "") {
+            setErrorMessage("Username is required")
+            return
+        }
+        if (password === "") {
+            setErrorMessage("Password is required")
+            return
+        }
         const response = await UserConnection.loginUser(username, password) as any
         if (response.token) {
-            console.log(response.message)
             updateToken(response.token)
             window.location.href = "/"
         } else {
-            console.log(response.message)
+            setErrorMessage(response.message)
         }
     }
 
@@ -62,8 +69,11 @@ export default function LoginPage() {
                         </button>
                         <a href="/">Esqueceu a senha?</a>
                     </div>
+                    <div className={css.error}>
+                        {errorMessage}
+                    </div>
                     <div className={css.buttons}>
-                        <a className={css.register} href="/">CADASTRAR</a>
+                        <a className={css.register} href="/register">CADASTRAR</a>
                         <button className={css.login} type="submit" onClick={login}>ENTRAR</button>
                     </div>
                 </div>
