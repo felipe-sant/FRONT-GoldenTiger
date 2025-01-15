@@ -1,3 +1,13 @@
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .main {
     display: flex;
     flex-direction: row;
@@ -6,7 +16,7 @@
 .wallpaper {
     width: calc(100% - 512px);
     height: 100dvh;
-    background-image: url("../../assets//images/wallpaper.jpg");
+    background-image: url("../../assets/images/tigre.jpeg");
     background-size: cover;
     z-index: 13;
 }
@@ -100,6 +110,13 @@
     padding-right: 36px;
 }
 
+.field input.error {
+    background-color: var(--error_4);
+    color: var(--error_1);
+    border-color: var(--error_2);
+    text-align: left;
+}
+
 .field input:focus {
     outline: none;
 }
@@ -154,9 +171,17 @@
     background: linear-gradient(to bottom, var(--yellow_3), var(--yellow_2));
     border: none;
     border-radius: 10px;
-    padding: 12px 24px;
     font-weight: 700;
     font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 108px;
+}
+
+.buttons .login .rotate {
+    animation: rotate360 2s linear infinite;
 }
 
 .tab.dark {
