@@ -29,6 +29,18 @@
     --blue_4: #5258C6;
     --blue_5: #6A74DD;
     --blue_6: #8CA5F7;
+    --sucess_1: #15510A;
+    --sucess_2: #8DCC83;
+    --sucess_3: #BBE6B4;
+    --sucess_4: #E3FFDE;
+    --alert_1: #544703;
+    --alert_2: #C1B859;
+    --alert_3: #E6E2BA;
+    --alert_4: #FFFCDE;
+    --error_1: #6E2723;
+    --error_2: #BB7772;
+    --error_3: #E0B1AE;
+    --error_4: #FFE0DE;
 }
 
 * {

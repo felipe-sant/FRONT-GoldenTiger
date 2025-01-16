@@ -1,4 +1,4 @@
-import ErrorMessage from "../../types/ErrorMessage";
+import ErrorMessage from "../../types/ErrorMessage.type";
 
 async function getRequest<T>(url: string, query?: Record<string, string>): Promise<T | ErrorMessage> {
     try {
@@ -17,7 +17,7 @@ async function getRequest<T>(url: string, query?: Record<string, string>): Promi
         return data;
     } catch (error) {
         console.error("Erro:", error);
-        return { error: (error as Error).message };
+        return { message: (error as Error).message };
     }
 }
 

@@ -1,4 +1,4 @@
-import ErrorMessage from "../../types/ErrorMessage";
+import ErrorMessage from "../../types/ErrorMessage.type";
 
 async function patchRequest<T, U>(url: string, body: U, query?: Record<string, string>): Promise<T | ErrorMessage> {
     try {
@@ -18,7 +18,7 @@ async function patchRequest<T, U>(url: string, body: U, query?: Record<string, s
         return data;
     } catch (error) {
         console.error("Erro:", error);
-        return { error: (error as Error).message };
+        return { message: (error as Error).message };
     }
 }
 

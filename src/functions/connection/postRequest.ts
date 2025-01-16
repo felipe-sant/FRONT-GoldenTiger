@@ -1,4 +1,4 @@
-import ErrorMessage from "../../types/ErrorMessage";
+import ErrorMessage from "../../types/ErrorMessage.type";
 
 async function postRequest<T, U>(url: string, body: U, query?: Record<string, string>): Promise<T | ErrorMessage> {
     try {
@@ -11,14 +11,11 @@ async function postRequest<T, U>(url: string, body: U, query?: Record<string, st
             },
             body: JSON.stringify(body),
         });
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
         const data: T = await response.json();
         return data;
     } catch (error) {
         console.error("Erro:", error);
-        return { error: (error as Error).message };
+        return { message: (error as Error).message };
     }
 }
 
