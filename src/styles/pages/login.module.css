@@ -16,7 +16,7 @@
 .wallpaper {
     width: calc(100% - 512px);
     height: 100dvh;
-    background-image: url("../../assets/images/tigre.jpeg");
+    background-image: url("../../assets/images/tigre.webp");
     background-size: cover;
     z-index: 13;
 }
@@ -36,7 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 0px;
 }
 
 .logo .img {
