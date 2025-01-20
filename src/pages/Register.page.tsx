@@ -7,26 +7,28 @@ import view from "../assets/images/view.svg"
 import unView from "../assets/images/unView.svg"
 import changeViewPassword from "../functions/utils/viewPassword";
 import redirect from "../functions/utils/redirect";
+import usernameMask from "../functions/utils/usernameMask";
 
 export default function RegisterPage() {
     const { theme } = React.useContext(ThemeContext)
+    const [errorMessage, setErrorMessage] = React.useState<string>("")
 
     const usernameRef = React.useRef<HTMLInputElement>(null)
     const [username, setUsername] = React.useState<string>("")
-    const [errorUsername, setErrorUsername] = React.useState<boolean>()
+    const [errorUsername, setErrorUsername] = React.useState<boolean>(false)
 
     const completeNameRef = React.useRef<HTMLInputElement>(null)
     const [completeName, setCompleteName] = React.useState<string>("")
-    const [errorCompleteName, setErrorCompleteName] = React.useState<boolean>()
+    const [errorCompleteName, setErrorCompleteName] = React.useState<boolean>(false)
 
     const passwordRef = React.useRef<HTMLInputElement>(null)
     const [password, setPassword] = React.useState<string>("")
-    const [errorPassword, setErrorPassword] = React.useState<boolean>()
+    const [errorPassword, setErrorPassword] = React.useState<boolean>(false)
     const [viewPassword, setViewPassword] = React.useState<boolean>(false)
 
     const confirmPasswordRef = React.useRef<HTMLInputElement>(null)
     const [confirmPassword, setConfirmPassword] = React.useState<string>("")
-    const [errorConfirmPassword, setErrorConfirmPassword] = React.useState<boolean>()
+    const [errorConfirmPassword, setErrorConfirmPassword] = React.useState<boolean>(false)
     const [viewConfirmPassword, setViewConfirmPassword] = React.useState<boolean>(false)
 
     const [isRegister, setIsRegister] = React.useState<boolean>(false)
@@ -36,6 +38,7 @@ export default function RegisterPage() {
         setErrorCompleteName(false)
         setErrorPassword(false)
         setErrorConfirmPassword(false)
+        setErrorMessage("")
     }
 
     function enableErrorUsername() {
@@ -64,24 +67,36 @@ export default function RegisterPage() {
         clearErrors()
 
         if (username === "") {
+            setErrorMessage("Username is required")
             enableErrorUsername()
             setIsRegister(false)
             return
         }
 
         if (completeName === "") {
+            setErrorMessage("Name is required")
             enableErrorCompleteName()
             setIsRegister(false)
             return
         }
 
         if (password === "") {
+            setErrorMessage("Password is required")
             enableErrorPassword()
             setIsRegister(false)
             return
         }
 
         if (confirmPassword === "") {
+            setErrorMessage("Confirm your password")
+            enableErrorConfirmPassword()
+            setIsRegister(false)
+            return
+        }
+
+        if (password !== confirmPassword) {
+            setErrorMessage("Passwords are different")
+            enableErrorPassword()
             enableErrorConfirmPassword()
             setIsRegister(false)
             return
@@ -106,7 +121,7 @@ export default function RegisterPage() {
                             type="text"
                             ref={usernameRef}
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            onChange={(e) => usernameMask(e.target.value, setUsername)}
                             onClick={clearErrors}
                             className={errorUsername ? css.error : ""}
                         />
@@ -150,6 +165,9 @@ export default function RegisterPage() {
                             {viewConfirmPassword ? <img src={unView} alt="" /> : <img src={view} alt="" />}
                         </button>
                     </div>
+                </div>
+                <div className={css.error}>
+                    {errorMessage}
                 </div>
                 <div className={css.footer}>
                     <a className={css.login} href="/login">Já possui um conta?</a>

@@ -70,7 +70,7 @@
     width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
 }
 
 .form .input {
@@ -95,6 +95,13 @@
     border-radius: 5px;
 }
 
+.form .input input.error {
+    background-color: var(--error_4);
+    color: var(--error_1);
+    border-color: var(--error_2);
+    text-align: left;
+}
+
 .form .input input:focus {
     outline: none;
 }
@@ -116,6 +123,13 @@
     align-items: center;
 }
 
+div.error {
+    color: var(--error_1);
+    font-weight: 700;
+    text-align: center;
+    margin-top: 40px;
+}
+
 .footer {
     position: absolute;
     bottom: 60px;
@@ -130,7 +144,7 @@
     text-decoration: none;
     color: var(--black_1);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .footer .register { 
@@ -138,17 +152,53 @@
     border: none;
     border-radius: 10px;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 44px;
-    width: 108px;
+    width: 138px;
 }
 
+.dark .tab {
+    background-color: var(--black_2) !important;
+}
+
+.dark .back {
+    background-image: url("../../assets/images/arrow_back_black.svg");
+}
+
+.dark label {
+    color: var(--white_6);
+}
+
+.dark input {
+    border: 2px solid var(--black_1) !important;
+    background-color: var(--black_4) !important;
+    color: var(--white_6) !important;
+}
+
+.dark input.error {
+    background-color: var(--error_1) !important;
+    color: var(--error_4) !important;
+}
+
+.dark .login {
+    color: var(--white_6);
+}
+
+.dark .error {
+    color: var(--error_2);
+}	
+
 @media (max-width: 600px) {
+    .tab {
+        margin: 20px 0;
+    }
+
     .header {
         height: 60px;
+        margin-bottom: 5px
     }
 
     .header .back {
@@ -161,6 +211,10 @@
         width: 60px;
     }
 
+    .input label {
+        font-size: 0.9rem;
+    }
+
     .form {
         width: 100%;
     }
@@ -170,5 +224,14 @@
         bottom: 40px;
         left: 40px;
         right: 40px;
+    }
+
+    .footer .login {
+        font-size: 0.9rem;
+    }
+
+    .footer .register {
+        font-size: 0.9rem;
+        width: 118px;
     }
 }
