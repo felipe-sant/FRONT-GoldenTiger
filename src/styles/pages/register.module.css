@@ -191,6 +191,10 @@ div.error {
     color: var(--error_2);
 }	
 
+.rotate {
+    animation: rotate360 2s linear infinite;
+}
+
 @media (max-width: 600px) {
     .tab {
         margin: 20px 0;

@@ -8,9 +8,12 @@ import unView from "../assets/images/unView.svg"
 import changeViewPassword from "../functions/utils/viewPassword";
 import redirect from "../functions/utils/redirect";
 import usernameMask from "../functions/utils/usernameMask";
+import UserConnection from "../backend/routes/UserConnection";
+import LoggedUserContext from "../context/LoggedUser.context";
 
 export default function RegisterPage() {
     const { theme } = React.useContext(ThemeContext)
+    const { updateToken } = React.useContext(LoggedUserContext)
     const [errorMessage, setErrorMessage] = React.useState<string>("")
 
     const usernameRef = React.useRef<HTMLInputElement>(null)
@@ -87,6 +90,13 @@ export default function RegisterPage() {
             return
         }
 
+        if (password.length < 8) {
+            setErrorMessage("Password must be at least 8 characters")
+            enableErrorPassword()
+            setIsRegister(false)
+            return
+        }
+
         if (confirmPassword === "") {
             setErrorMessage("Confirm your password")
             enableErrorConfirmPassword()
@@ -102,8 +112,20 @@ export default function RegisterPage() {
             return
         }
 
-        console.log("register")
-        setIsRegister(false)
+        const response = await UserConnection.registerUser(username, completeName, password) as any
+        if (response.message === "User registered successfully") {
+            const responseLogin = await UserConnection.loginUser(username, password) as any
+            if (responseLogin.token) {
+                updateToken(response.token)
+                window.location.href = "/"
+            } else {
+                setErrorMessage(responseLogin.message)
+                window.location.href = "/login"
+            }
+        } else {
+            setErrorMessage(response.message)
+            setIsRegister(false)
+        }
     }
 
     return (

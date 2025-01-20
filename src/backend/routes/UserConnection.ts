@@ -18,4 +18,19 @@ export default class UserConnection extends Backend {
             return { message: error as string }
         }
     }
+
+    public static async registerUser(username: string, completeName: string, password: string): Promise<{message: string} | ErrorMessage> {
+        try {
+            const body = {
+                username: username,
+                name: completeName,
+                password: password
+            }
+            const response = await postRequest<{message: string}, Record<string, string>>(UserConnection.UserURL + "/register", body)
+            return response
+        } catch (error) {
+            console.error(error)
+            return { message: error as string }
+        }
+    }
 }
