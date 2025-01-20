@@ -1,0 +1,241 @@
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.wallpaper {
+    width: 100%;
+    height: 100dvh;
+    background-image: url("../../assets/images/tigre.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 13;
+    position: absolute; 
+}
+
+.tab {
+    width: 924px;
+    z-index: 22;
+    background-color: var(--white_6);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    padding: 40px;
+}
+
+.header {   
+    width: 100%;
+    height: calc(96px);
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.header .back {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    height: 40px;
+    width: 40px;
+    background-image: url("../../assets/images/arrow_back.svg");
+    background-size: cover;
+    background-color: transparent;
+    padding: none;
+    border: none;
+}
+
+.header .img {
+    background-image: url("../../assets/images/logo.png");
+    background-size: cover;
+    height: 96px;
+    width: 96px;
+}
+
+.form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form .input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+}
+
+.form .input label.required::after {
+    content: "*";
+    color: red;
+    font-weight: 600;
+}
+
+.form .input input {
+    color: var(--black_1);
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    background-color: var(--yellow_6);
+    border: 2px solid var(--yellow_2);
+    border-radius: 5px;
+}
+
+.form .input input.error {
+    background-color: var(--error_4);
+    color: var(--error_1);
+    border-color: var(--error_2);
+    text-align: left;
+}
+
+.form .input input:focus {
+    outline: none;
+}
+
+.form .input input.password {
+    padding-right: 36px;
+}
+
+.form .input .viewPassword {
+    height: 24px;
+    width: 24px;
+    right: 10px;
+    bottom: 7px;
+    border: none;
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.error {
+    color: var(--error_1);
+    font-weight: 700;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 500px;
+}
+
+.footer .login {
+    align-self: center;
+    text-decoration: none;
+    color: var(--black_1);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.footer .register { 
+    background: linear-gradient(to bottom, var(--yellow_3), var(--yellow_2));
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 138px;
+}
+
+.dark .tab {
+    background-color: var(--black_2) !important;
+}
+
+.dark .back {
+    background-image: url("../../assets/images/arrow_back_black.svg");
+}
+
+.dark label {
+    color: var(--white_6);
+}
+
+.dark input {
+    border: 2px solid var(--black_1) !important;
+    background-color: var(--black_4) !important;
+    color: var(--white_6) !important;
+}
+
+.dark input.error {
+    background-color: var(--error_1) !important;
+    color: var(--error_4) !important;
+}
+
+.dark .login {
+    color: var(--white_6);
+}
+
+.dark .error {
+    color: var(--error_2);
+}	
+
+.rotate {
+    animation: rotate360 2s linear infinite;
+}
+
+@media (max-width: 600px) {
+    .tab {
+        margin: 20px 0;
+    }
+
+    .header {
+        height: 60px;
+        margin-bottom: 5px
+    }
+
+    .header .back {
+        left: 0;
+        top: 0;
+    }
+
+    .header .img {
+        height: 60px;
+        width: 60px;
+    }
+
+    .input label {
+        font-size: 0.9rem;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    .footer {
+        width: calc(100% - 80px);   
+        bottom: 40px;
+        left: 40px;
+        right: 40px;
+    }
+
+    .footer .login {
+        font-size: 0.9rem;
+    }
+
+    .footer .register {
+        font-size: 0.9rem;
+        width: 118px;
+    }
+}

@@ -16,7 +16,7 @@
 .wallpaper {
     width: calc(100% - 512px);
     height: 100dvh;
-    background-image: url("../../assets/images/tigre.jpeg");
+    background-image: url("../../assets/images/tigre.webp");
     background-size: cover;
     z-index: 13;
 }
@@ -28,6 +28,8 @@
     background-color: var(--white_6);
     display: flex;
     flex-direction: column;
+    position: relative;
+    gap: 0px;
 }
 
 .logo {
@@ -36,7 +38,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 0px;
 }
 
 .logo .img {
@@ -77,7 +79,7 @@
 }
 
 .form {
-    height: 50%;
+    height: 55%;
     width: 320px;
     margin: auto;
     display: flex;
@@ -124,8 +126,8 @@
 .field .viewPassword {
     height: 24px;
     width: 24px;
-    right: 12px;
-    top: 40px;
+    right: 10px;
+    top: 39.5px;
     border: none;
     position: absolute;
     background-color: transparent;
@@ -153,10 +155,12 @@
 }
 
 .buttons {
-    margin-top: 30px;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-content: center;
+    bottom: 60px;
+    width: calc(100% - 190px);
 }
 
 .buttons .register {
@@ -196,8 +200,10 @@
     color: var(--white_6);
 }
 
-.tab.dark .field input {
-    border: 2px solid var(--yellow_4);
+.tab.dark .field input {    
+    border: 2px solid var(--black_1) !important;
+    background-color: var(--black_4) !important;
+    color: var(--white_6) !important;
 }
 
 .tab.dark .field a {
@@ -206,6 +212,10 @@
 
 .tab.dark .buttons .register {
     color: var(--white_6);
+}
+
+.tab.dark .error {
+    color: var(--error_2)
 }
 
 @media (max-width: 1200px) {
@@ -223,10 +233,11 @@
         width: none;
         height: calc(100dvh - 40px);
         box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
+        gap: 20px;
     }
 
     .logo {
-        height: 40%;
+        height: 30%;
     }
 
     .logo .img {
@@ -235,12 +246,12 @@
     }
 
     .form {
-        height: 55%;
+        height: 70%;
         width: 300px;
     }
 
     .buttons {
-        margin-top: 30px;
+        width: calc(100% - 100px);
     }
 }
 
