@@ -116,12 +116,17 @@ export default function RegisterPage() {
         if (response.message === "User registered successfully") {
             const responseLogin = await UserConnection.loginUser(username, password) as any
             if (responseLogin.token) {
-                updateToken(response.token)
+                updateToken(responseLogin.token)
+                setIsRegister(false)
                 window.location.href = "/"
             } else {
                 setErrorMessage(responseLogin.message)
                 window.location.href = "/login"
             }
+        } else if (response.message === "Username already exists"){
+            setErrorMessage(response.message)
+            enableErrorUsername()
+            setIsRegister(false)
         } else {
             setErrorMessage(response.message)
             setIsRegister(false)
@@ -138,17 +143,6 @@ export default function RegisterPage() {
                 </div>
                 <div className={css.form}>
                     <div className={css.input}>
-                        <label className={css.required}>Nome de Usuário</label>
-                        <input
-                            type="text"
-                            ref={usernameRef}
-                            value={username}
-                            onChange={(e) => usernameMask(e.target.value, setUsername)}
-                            onClick={clearErrors}
-                            className={errorUsername ? css.error : ""}
-                        />
-                    </div>
-                    <div className={css.input}>
                         <label className={css.required}>Nome Completo</label>
                         <input
                             type="text"
@@ -157,6 +151,17 @@ export default function RegisterPage() {
                             onChange={(e) => setCompleteName(e.target.value)}
                             onClick={clearErrors}
                             className={errorCompleteName ? css.error : ""}
+                        />
+                    </div>
+                    <div className={css.input}>
+                        <label className={css.required}>Nome de Usuário</label>
+                        <input
+                            type="text"
+                            ref={usernameRef}
+                            value={username}
+                            onChange={(e) => usernameMask(e.target.value, setUsername)}
+                            onClick={clearErrors}
+                            className={errorUsername ? css.error : ""}
                         />
                     </div>
                     <div className={css.input}>

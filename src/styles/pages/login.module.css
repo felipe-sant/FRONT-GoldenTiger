@@ -233,11 +233,11 @@
         width: none;
         height: calc(100dvh - 40px);
         box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
-        gap: 20px;
+        gap: 10px;
     }
 
     .logo {
-        height: 30%;
+        height: 35%;
     }
 
     .logo .img {
@@ -246,12 +246,12 @@
     }
 
     .form {
-        height: 70%;
+        height: 65%;
         width: 300px;
     }
 
     .buttons {
-        width: calc(100% - 100px);
+        width: 300px;
     }
 }
 

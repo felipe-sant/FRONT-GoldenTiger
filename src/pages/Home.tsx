@@ -1,17 +1,17 @@
-import React, { useEffect } from "react"
+import React from "react"
 import LoggedUserContext from "../context/LoggedUser.context"
 import css from "../styles/pages/home.module.css"
 import NotLogged from "./NotLogged"
 import ThemeContext from "../context/Theme.context"
 
 function Home() {
-    const { isLog, token, removeToken } = React.useContext(LoggedUserContext)
+    const { isLog, user, removeToken } = React.useContext(LoggedUserContext)
     const {toggleTheme } = React.useContext(ThemeContext)
  
     if (!isLog()) return <NotLogged />
 
     function teste() {
-        console.log(token)
+        console.log(user)
     }
 
     return (
